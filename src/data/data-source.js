@@ -1,13 +1,8 @@
 class DataSource {
-    static getDataByCountry(key) {
+    static async getDataByCountry(country = null) {
+
         // Confirmed, recovered, death data from certain country
-        return fetch(`https://covid-19-data.p.rapidapi.com/country?format=json&name=${key}`, {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
-                "x-rapidapi-key": "5f5f6090c6mshe3c64a00c80ba71p1cc3c8jsna5ca7e5362ef"
-            }
-        })
+        return fetch(`https://services1.arcgis.com/0MSEUqKaxRlEPj5g/arcgis/rest/services/ncov_cases/FeatureServer/2/query?where=1%3D1&outFields=*&outSR=4326&f=json`)
             .then(response => {
                 return response.json();
             })
@@ -15,15 +10,13 @@ class DataSource {
                 return Promise.resolve(responseJSON);
             })
             .catch(err => {
-                return Promise.reject(`${key} is not found`);
+                return Promise.reject(`${country} is not found`);
             });
     }
 
-    static getDataByProvince(key) {
-        // Province, Deaths,Recovered, Positives data from certain country
-        return fetch(`https://services5.arcgis.com/VS6HdKS0VfIhv8Ct/arcgis/rest/services/COVID19_Indonesia_per_Provinsi/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json`, {
-            "method": "GET"
-        })
+    static async getDataByProvince(province = null) {
+        // Province, Deaths,Recovered, Positives data from Indonesia
+        return fetch(`https://services5.arcgis.com/VS6HdKS0VfIhv8Ct/arcgis/rest/services/COVID19_Indonesia_per_Provinsi/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json`)
             .then(response => {
                 return response.json();
             })
@@ -36,3 +29,4 @@ class DataSource {
     }
 
 }
+export default DataSource;
