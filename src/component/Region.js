@@ -1,20 +1,23 @@
 class RegionItem extends HTMLElement {
     constructor() {
         super();
-        this.shadowDOM = this.attachShadow({ mode: "open" });
     }
     set region(region) {
         this._region = region;
         this.render();
     }
-
+    /* connectedCallback() {
+        this.render();
+    } */
 
     render() {
-        this.shadowDOM.innerHTML = `
-        <img class="fan-art-region" src="${this._region.strTeamBadge}" alt="Fan Art">
-        <div class="region-info">
-            <h2>${this._region.strTeam}</h2>
-            <p>${ this._region.strDescriptionEN}</p>
+        this.innerHTML = `
+        <div class="card">
+            <img class="card-img-top" src="{indonesia-flag-button-round-icon-128.png}" alt="Indonesia">
+            <div class="card-body">
+                <h4 class="card-title">Title</h4>
+                <p class="card-text">Text</p>
+            </div>
         </div>`;
     }
 }

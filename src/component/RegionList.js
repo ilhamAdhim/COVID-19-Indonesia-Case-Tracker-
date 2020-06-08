@@ -1,16 +1,19 @@
-class RegionList {
+import './Region'
+class RegionList extends HTMLElement {
     constructor() {
         super();
-        this.shadowDOM = this.attachShadow({ mode: "open" });
-
     }
     set regions(regions) {
         this._regions = regions;
         this.render();
     }
 
+    connectedCallback(regions) {
+        this.render();
+    }
+
     renderError(message) {
-        this.shadowDOM.innerHTML = `
+        this.innerHTML = `
        <style>
            .placeholder {
                font-weight: lighter;
@@ -22,22 +25,22 @@ class RegionList {
            }
        </style>
        `;
-        this.shadowDOM.innerHTML += `<h2 class="placeholder">${message}</h2>`;
+        this.innerHTML += `<h2 class="placeholder">${message}</h2>`;
     }
 
     render() {
-        this.shadowDOM.innerHTML = "";
-        this.regions.forEach(region => {
-            const regionItemElement = document.createElement("region-list");
-            regionItemElement.region = region
-            this.shadowDOM.appendChild(regionItemElement);
-        })
+        this.innerHTML = `
+        <div class="container">
+            <div class="card-deck">
+            </div>
+        </div>`;
+        /* this._regions.forEach(region => {
+            const regionItemElement = document.createElement("region-item");
+            regionItemElement.region = region;
+            this.appendChild(regionItemElement);
+        }) */
     }
 }
-
-
-
-
 
 
 
