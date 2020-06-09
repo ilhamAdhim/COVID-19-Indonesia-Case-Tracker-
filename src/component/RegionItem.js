@@ -1,5 +1,3 @@
-// import images from "../data/images";
-
 class RegionItem extends HTMLElement {
     constructor() {
         super();
@@ -7,18 +5,13 @@ class RegionItem extends HTMLElement {
     set region(region) {
         this._region = region[0].attributes;
         this._region['image'] = "../../dist/assets/" + this._region.Country_Region + "-flag-button-round-icon-128.png"
-        // console.log(this._region)
         this.render();
     }
-    /* connectedCallback() {
-        this.render();
-    } */
 
     render() {
-        // console.log(images)
-        if (_.has(this._region, 'Country_Region')) {
-            this.innerHTML = `
-            
+        // console.log(this._region)
+        this.className = "card";
+        this.innerHTML = `
                 <div class="container p-2">
                     <div class="row">
                         <div class="col-sm-4">
@@ -70,17 +63,8 @@ class RegionItem extends HTMLElement {
                     </div>
                 </div>
             `;
-        } else {
-            this.innerHTML = `
-            <tr>
-                <td> <b> ${this._region.Country_Region} </b>
-                <td> <b> ${this._region.Deaths} </b>
-                <td> <b> ${this._region.Confirmed} </b>
-                <td> <b> ${this._region.Recovered} </b>
-            </tr>
-            `
-        }
     }
 }
+
 
 customElements.define("region-item", RegionItem);
