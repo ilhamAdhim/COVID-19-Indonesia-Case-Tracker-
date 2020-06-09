@@ -1,4 +1,4 @@
-import './Region'
+import './RegionItem'
 class RegionList extends HTMLElement {
     constructor() {
         super();
@@ -23,22 +23,19 @@ class RegionList extends HTMLElement {
                -ms-user-select: none;
                user-select: none;
            }
-       </style>
-       `;
+       </style>`;
         this.innerHTML += `<h2 class="placeholder">${message}</h2>`;
     }
 
     render() {
-        this.innerHTML = `
-        <div class="container">
-            <div class="card-deck">
-            </div>
-        </div>`;
-        /* this._regions.forEach(region => {
-            const regionItemElement = document.createElement("region-item");
-            regionItemElement.region = region;
-            this.appendChild(regionItemElement);
-        }) */
+        this.className = "card-deck";
+        this._regions.forEach(region => {
+            const createRegionItemElement = document.createElement("region-item");
+            createRegionItemElement.region = region;
+            createRegionItemElement.className = "card";
+            this.appendChild(createRegionItemElement);
+
+        })
     }
 }
 

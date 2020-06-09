@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 
 import "./component/NavBar";
-import "./component/Region";
+import "./component/RegionItem";
 import "./component/RegionList";
 
 

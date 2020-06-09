@@ -3,7 +3,7 @@ import DataSource from '../data/data-source.js';
 import _ from 'lodash';
 
 const main = () => {
-    const defaultNations = ['China', 'Indonesia', 'Italy', 'US', 'Singapore'];
+    const defaultNations = ['China', 'US', 'Indonesia'];
     const defaultProvinces = ['DKI Jakarta', 'Jawa Timur', 'Jawa Tengah', 'Jawa Barat', 'Sumatera Utara'];
 
     const container = document.querySelector('.container');
@@ -27,7 +27,7 @@ const main = () => {
             }
             // console.log("Raw", resultAPI)
 
-            renderResult(province != null ? JSON.stringify(finalResult) : resultAPI);
+            renderResult(province != null ? finalResult : resultAPI);
         } catch (message) {
             errorMessage(message);
         }
@@ -35,15 +35,18 @@ const main = () => {
 
     const dataAllCountry = async (country = null) => {
         try {
-            const resultAPI = await DataSource.getDataByCountry(country);
             const finalResult = []
-            // console.log(resultAPI.features[0].attributes.Country_Region)
-            defaultNations.forEach(nationName => {
-                let country = _.filter(resultAPI.features, ['attributes.Country_Region', nationName])
-                finalResult.push(country);
-            })
-            // console.log(finalResult)
-            renderResult(finalResult);
+            const resultAPI = await DataSource.getDataByCountry(country);
+            if (country != null) {
+                // console.log(resultAPI.features[0].attributes.Country_Region)
+                defaultNations.forEach(nationName => {
+                    let country = _.filter(resultAPI.features, ['attributes.Country_Region', nationName])
+                    finalResult.push(country);
+                })
+                // console.log(finalResult)
+            }
+            renderResult(country != null ? finalResult : resultAPI);
+
         } catch (message) {
             errorMessage(message);
         }
@@ -59,8 +62,8 @@ const main = () => {
     };
 
 
-    dataByProvince(defaultProvinces);
-    dataAllCountry();
+    // dataByProvince(defaultProvinces);
+    dataAllCountry(defaultNations);
 
 
 }
