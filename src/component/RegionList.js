@@ -8,10 +8,6 @@ class RegionList extends HTMLElement {
         this.render();
     }
 
-    connectedCallback(regions) {
-        this.render();
-    }
-
     renderError(message) {
         this.innerHTML = `
        <style>
@@ -28,14 +24,16 @@ class RegionList extends HTMLElement {
     }
 
     render() {
+        // console.log(_.has(this._regions[0][0], 'attributes.Country_Region'));
         this.className = "card-deck";
         this._regions.forEach(region => {
             const createRegionItemElement = document.createElement("region-item");
             createRegionItemElement.region = region;
-            createRegionItemElement.className = "card";
             this.appendChild(createRegionItemElement);
-
         })
+
+
+
     }
 }
 
