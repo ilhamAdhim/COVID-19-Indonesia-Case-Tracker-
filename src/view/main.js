@@ -3,7 +3,7 @@ import DataSource from '../data/data-source.js';
 import _ from 'lodash';
 
 const main = () => {
-    const defaultNations = ['China', 'US', 'Italy'];
+    const defaultNations = ['US', 'United Kingdom', 'Brazil'];
     const defaultProvinces = ['DKI Jakarta', 'Jawa Timur', 'Jawa Tengah', 'Jawa Barat', 'Sumatera Utara'];
 
     const regionListElement = document.querySelector("region-list");
@@ -65,9 +65,18 @@ const main = () => {
         })
     }
 
+    const getDate = () => {
+        n = new Date();
+        y = n.getFullYear();
+        m = n.getMonth() + 1;
+        d = n.getDate();
+        document.getElementsByClassName("date").innerHTML = m + "/" + d + "/" + y;
+    }
+
     const defaultData = async () => {
         await dataAllCountry(defaultNations);
         await dataByProvince(defaultProvinces);
+        getDate();
     }
 
     defaultData()
