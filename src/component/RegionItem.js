@@ -32,17 +32,17 @@ class RegionItem extends HTMLElement {
                     <div class="d-flex flex-md-column">
                         <div class="p-2 flex-fill bg-success">
                             <center>
-                                Recovered  ${this._region.Recovered.toLocaleString("en")}
+                                Sembuh  ${this._region.Recovered.toLocaleString("en")}
                             </center>
                         </div>
                         <div class="p-2 flex-fill bg-warning">
                             <center>
-                                Confirmed  ${this._region.Confirmed.toLocaleString("en")}
+                                Positif  ${this._region.Confirmed.toLocaleString("en")}
                             </center>
                         </div>
                         <div class="p-2 flex-fill bg-danger">
                             <center>
-                                Deaths 
+                            Meninggal 
                             ${this._region.Deaths.toLocaleString("en")}
 
                             </center>

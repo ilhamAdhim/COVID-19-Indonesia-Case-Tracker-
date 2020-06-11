@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 const main = () => {
     const defaultNations = ['US', 'United Kingdom', 'Brazil'];
-    const defaultProvinces = ['DKI Jakarta', 'Jawa Timur', 'Jawa Tengah', 'Jawa Barat', 'Sumatera Utara'];
+    const defaultProvinces = ['Jawa Timur', 'Sulawesi Selatan', 'DKI Jakarta', 'Jawa Tengah', 'Kalimantan Selatan'];
 
     const regionListElement = document.querySelector("region-list");
 
@@ -18,6 +18,7 @@ const main = () => {
                     finalResult.push(province);
                 })
             }
+            // Sort the Province based on amount of Confirmed cases
 
             renderProvinceData(province != null ? finalResult : resultAPI);
         } catch (message) {
@@ -54,7 +55,7 @@ const main = () => {
     const renderProvinceData = results => {
         const container = document.querySelector('.data-province');
         results.forEach(province => {
-            console.log(province[0])
+            // console.log(province[0])
             container.innerHTML += ` 
             <tr>
                 <td style="font-size:1em"> <center> <b> ${province[0].attributes.Provinsi.toLocaleString("en")} </b> </center></td>
