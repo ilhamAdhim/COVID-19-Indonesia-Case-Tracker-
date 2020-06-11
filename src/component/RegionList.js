@@ -25,7 +25,7 @@ class RegionList extends HTMLElement {
 
     render() {
         // console.log(_.has(this._regions[0][0], 'attributes.Country_Region'));
-        this.className = "card-deck";
+        this.className = "card-deck d-flex flex-sm-column flex-md-row";
         this._regions.forEach(region => {
             const createRegionItemElement = document.createElement("region-item");
             createRegionItemElement.region = region;

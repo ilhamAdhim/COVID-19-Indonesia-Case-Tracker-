@@ -3,7 +3,7 @@ import DataSource from '../data/data-source.js';
 import _ from 'lodash';
 
 const main = () => {
-    const defaultNations = ['China', 'US', 'Indonesia'];
+    const defaultNations = ['China', 'US', 'Italy'];
     const defaultProvinces = ['DKI Jakarta', 'Jawa Timur', 'Jawa Tengah', 'Jawa Barat', 'Sumatera Utara'];
 
     const regionListElement = document.querySelector("region-list");
@@ -13,7 +13,6 @@ const main = () => {
             const finalResult = []
             const resultAPI = await DataSource.getDataByProvince(province);
             if (province != null) {
-                // console.log(resultAPI.features[0].attributes.Provinsi)
                 province.forEach(provinceName => {
                     let province = _.filter(resultAPI.features, ['attributes.Provinsi', provinceName])
                     finalResult.push(province);
@@ -55,17 +54,14 @@ const main = () => {
     const renderProvinceData = results => {
         const container = document.querySelector('.data-province');
         results.forEach(province => {
-            container.innerHTML += `<tr>`;
-
             console.log(province[0])
             container.innerHTML += ` 
-            <td> <center> ${province[0].attributes.Provinsi} </center></td>
-            <td> <center> ${province[0].attributes.Kasus_Meni} </center></td>
-            <td> <center> ${province[0].attributes.Kasus_Semb} </center></td>
-            <td> <center> ${province[0].attributes.Kasus_Posi} </center></td>
-            `
-            container.innerHTML += `</tr>`;
-
+            <tr>
+                <td style="font-size:1em"> <center> <b> ${province[0].attributes.Provinsi.toLocaleString("en")} </b> </center></td>
+                <td style="font-size:1em"> <center> <b> ${province[0].attributes.Kasus_Meni.toLocaleString("en")} </b> </center></td>
+                <td style="font-size:1em"> <center> <b> ${province[0].attributes.Kasus_Posi.toLocaleString("en")} </b> </center></td>
+                <td style="font-size:1em"> <center> <b> ${province[0].attributes.Kasus_Semb.toLocaleString("en")} </b> </center></td>
+            </tr>`
         })
     }
 

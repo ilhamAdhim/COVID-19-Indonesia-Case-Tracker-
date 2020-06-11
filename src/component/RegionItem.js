@@ -15,7 +15,11 @@ class RegionItem extends HTMLElement {
                 <div class="container p-2">
                     <div class="row">
                         <div class="col-sm-4">
-                            <img class="center" src="${this._region.image} " alt="${this._region.Country_Region}" width="60" height="60">
+                            <center>
+
+                                <img class="center" src="${this._region.image} " alt="${this._region.Country_Region}" width="60" height="60">
+                            </center>
+
                         </div>
                         <div class="col-sm-8 align-self-center">
                             <center>
@@ -25,43 +29,28 @@ class RegionItem extends HTMLElement {
                     </div>
                 </div>
                 <div class="card-body">    
-                    <div class="d-flex flex-row">
+                    <div class="d-flex flex-md-column">
                         <div class="p-2 flex-fill bg-success">
                             <center>
-                                Recovered
+                                Recovered  ${this._region.Recovered.toLocaleString("en")}
                             </center>
                         </div>
                         <div class="p-2 flex-fill bg-warning">
                             <center>
-                                Confirmed
+                                Confirmed  ${this._region.Confirmed.toLocaleString("en")}
                             </center>
                         </div>
                         <div class="p-2 flex-fill bg-danger">
                             <center>
-                                Deaths
+                                Deaths 
+                            ${this._region.Deaths.toLocaleString("en")}
+
                             </center>
                         </div>
                     </div>
                 </div>
             
-            <div class="card-footer">
-                <div class="d-flex flex-row">
-                    <div class="p-2 flex-fill bg-success">
-                        <center>
-                            ${this._region.Recovered}
-                        <center>
-                    </div>
-                    <div class="p-2 flex-fill bg-warning">
-                        <center>
-                            ${this._region.Confirmed}
-                        <center>
-                    </div>
-                    <div class="p-2 flex-fill bg-danger">
-                        <center>
-                            ${this._region.Deaths}
-                        <center>
-                    </div>
-                </div>
+            
             `;
     }
 }
