@@ -6,10 +6,80 @@
 /* } */
 
 .jumbotron {
-  font-family: Roboto Condensed; /* css */
+  font-family: Roboto; /* css */
 }
-@media only screen and (max-device-width: 1366px) {
-  .parallax {
-    background-attachment: scroll;
+
+.title {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.speech-bubble {
+  position: relative;
+  background: #4e62c6;
+  border-radius: 0.4em;
+}
+
+.speech-bubble:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 26px solid transparent;
+  border-left-color: #4e62c6;
+  border-right: 0;
+  border-top: 0;
+  margin-top: -13px;
+  margin-right: -26px;
+}
+
+@media screen and (max-width: 1000px) {
+  .speech-bubble {
+    position: relative;
+    background: #4e62c6;
+    border-radius: 0.4em;
   }
+  .speech-bubble:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 0.813em solid transparent;
+    border-top-color: #4e62c6;
+    border-bottom: 0;
+    border-right: 0;
+    margin-left: -0.406em;
+    margin-bottom: -0.812em;
+  }
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: white;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: white;
+}
+
+input,
+select,
+textarea {
+  color: white;
+}
+
+textarea:focus,
+input:focus {
+  color: white;
 }
