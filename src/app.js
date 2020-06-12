@@ -3,10 +3,8 @@ import "../styles/style.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 
-import "./component/NavBar";
 import "./component/RegionItem";
 import "./component/RegionList";
-
-
+import "./component/SearchBar";
 
 document.addEventListener("DOMContentLoaded", main);
