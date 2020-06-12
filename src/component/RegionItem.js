@@ -10,7 +10,7 @@ class RegionItem extends HTMLElement {
 
     render() {
         // console.log(this._region)
-        this.className = "card";
+        this.className = "card mb-2";
         this.innerHTML = `
                 <div class="container p-2">
                     <div class="row">
@@ -27,20 +27,20 @@ class RegionItem extends HTMLElement {
                             </center>
                         </div>
                     </div>
-                </div>
-                <div class="card-body">    
-                    <div class="d-flex flex-md-column">
-                        <div class="p-2 flex-fill bg-success">
+                    <hr >
+                <div class="card-body p-2" style="padding:0">    
+                    <div class="d-flex flex-md-column flex-lg-row">
+                        <div class="p-2 flex-fill text-success">
                             <center>
                                 Sembuh  ${this._region.Recovered.toLocaleString("en")}
                             </center>
                         </div>
-                        <div class="p-2 flex-fill bg-warning">
+                        <div class="p-2 flex-fill text-warning">
                             <center>
                                 Positif  ${this._region.Confirmed.toLocaleString("en")}
                             </center>
                         </div>
-                        <div class="p-2 flex-fill bg-danger">
+                        <div class="p-2 flex-fill text-danger">
                             <center>
                             Meninggal 
                             ${this._region.Deaths.toLocaleString("en")}
