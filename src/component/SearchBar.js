@@ -1,4 +1,3 @@
-import './ProvinceItem'
 class SearchBar extends HTMLElement {
 
     constructor() {
@@ -21,16 +20,12 @@ class SearchBar extends HTMLElement {
     render() {
         this.innerHTML = `
         <div class="p-2 h-100 text-center">
-            <div class="md-form"  id="search-container">
-                <input type="text" placeholder="Cari Provinsi Anda..." id="searchElement" aria-label="Search">
-                <i class="fas fa-search text-white ml-3" aria-hidden="true"></i>
+            <div class="md-form search-container"  id="search-container">
+                <input type="text" placeholder="Cari Provinsi Anda..." id="searchElement" type="search" aria-label="Search">
                 <button class="btn btn-indigo btn-rounded btn-lg text-white" id="searchButtonElement" type="submit">Cari</button>
-                <div class = "container search-result">
-                </div>
             </div>
         </div>`;
 
-        console.log(this.value)
         this.querySelector("#searchButtonElement").addEventListener("click", this._clickEvent);
     }
 }
