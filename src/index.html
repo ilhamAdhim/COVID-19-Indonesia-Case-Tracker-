@@ -24,21 +24,20 @@
     <div class="jumbotron bg-info jumbotron-fluid text-white">
         <div class="container h-100">
             <div class="d-flex flex-sm-column flex-lg-row h-100 justify-content-center align-items-center">
-                <div class="p-2 speech-bubble flex-fill h-50 title-jumbotron" data-aos-delay="1500" data-aos="fade-up">
-                    <div class="ml-4">
+                <div class="p-2 speech-bubble flex-fill h-50 " data-aos-delay="1500" data-aos="fade-up">
+                    <div class="ml-4 title-jumbotron">
                         <h1 class="display-3 p-4 title">Monitor COVID-19</h1>
                         <p class="lead p-4">Latest Update :
                             <script> document.write(new Date().toDateString()); </script>
                         </p>
                         <hr class="my-2">
-                        <p class="lead">
-                            <search-bar></search-bar>
-                            <province-item></province-item>
+                        <p class="lead text-center">
+                            <button class="btn btn-info" id="triggerButton" onclick="triggerSearchFeature()">
+                                Cari Provinsi Anda
+                            </button>
                         </p>
                     </div>
                 </div>
-
-
                 <div class="p-2 flex-fill h-70" data-aos="fade-left" data-aos-delay="200">
                     <div class="mr-2">
                         <img src="../dist/assets/medic2.png" style="transform: translate(0px,75px); height: 600px;"
@@ -47,33 +46,19 @@
                 </div>
             </div>
         </div>
-
-
-
     </div>
 
     <!-- Nations -->
 
 
     <div class="container">
-        <div class="p-4">
-
-            <h1 class="text-center mb-4 mt-4">
-                Top 3 Global Cases
-            </h1>
-
-            <region-list class="p-2" data-aos="zoom-out-left"></region-list>
-        </div>
-
-        <!--End of Nations Data -->
-
-
         <!-- Indonesian Provinces -->
-
         <div class="p-4">
-            <h1 class="text-center mb-4 mt-4">
+            <h1 class="text-center mb-4 mt-4 p-2">
                 Kasus di Indonesia
             </h1>
+            <search-bar></search-bar>
+
             <div class="table-responsive" data-aos="zoom-out-right">
                 <table class="table table-striped table-hover">
                     <thead class="bg-info white-text">
@@ -91,13 +76,29 @@
                         </td>
                     </thead>
 
-                    <tbody class="data-province">
+                    <tbody>
+                        <province-item></province-item>
                     </tbody>
 
                 </table>
             </div>
         </div>
         <!-- End of Indonesian Provinces data -->
+
+        <div class="p-4">
+
+            <h1 class="text-center mb-4 mt-4">
+                Top 3 Global Cases
+            </h1>
+
+            <region-list class="p-2" data-aos="zoom-out-left"></region-list>
+        </div>
+
+        <!--End of Nations Data -->
+
+
+
+
 
         <!-- What to Do -->
 
