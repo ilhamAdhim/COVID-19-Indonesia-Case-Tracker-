@@ -9,24 +9,6 @@ const main = () => {
     const regionListElement = document.querySelector("region-list");
     const provinceItemElement = document.querySelector("province-item");
 
-
-    const dataByProvince = async (province = null) => {
-        try {
-            const finalResult = [];
-            const resultAPI = await DataSource.getDataByProvince();
-            if (province != null) {
-                province.forEach(provinceName => {
-                    let province = _.filter(resultAPI.features, ['attributes.Provinsi', provinceName]);
-                    finalResult.push(province);
-                })
-            }
-            // Sort the Province based on amount of Confirmed cases
-            renderProvinceData(province != null ? finalResult : resultAPI);
-        } catch (message) {
-            errorMessage(message);
-        }
-    }
-
     const dataAllCountry = async (country = null) => {
         try {
             const finalResult = []
@@ -47,11 +29,14 @@ const main = () => {
     const onButtonSearchClicked = async () => {
         try {
             const resultAPI = await DataSource.getDataByProvince();
-            const province = _.filter(resultAPI.features, ['attributes.Provinsi', searchBarElement.value]);
-            console.log(province);
+
+            // Capitalized the first letter of each word
+            const formattedProvince = _.startCase(_.camelCase(searchBarElement.value));
+
+            const province = _.filter(resultAPI.features, ['attributes.Provinsi', formattedProvince]);
             renderSearchProvince(province);
         } catch (message) {
-            errorMessage(message)
+            errorMessage(message);
         }
     };
 
@@ -66,7 +51,6 @@ const main = () => {
     const renderCountryData = results => {
         regionListElement.regions = results;
     };
-
 
 
     const defaultData = async () => {
