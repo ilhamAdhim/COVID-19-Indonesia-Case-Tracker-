@@ -5,15 +5,25 @@ class ProvinceItem extends HTMLElement {
 
     set province(province) {
         // Get only some keys from JSON Response and assign it to private variable
-        this._province = _.pick(province[0].attributes, ['Provinsi', 'Kasus_Meni', 'Kasus_Posi', 'Kasus_Semb']);
+        this._province = province[0].attributes;
         this.render();
     }
 
+    renderError() {
+        this.innerHTML = `Provinsi tidak ditemukan`;
+    }
 
 
     render() {
-        console.log(this._province);
+        const tbody = document.querySelector('tbody');
 
+        tbody.innerHTML += ` 
+            <tr class="province-item">
+                <td style="font-size:1em"> <center> <b> ${this._province.Provinsi} </b> </center></td>
+                <td style="font-size:1em"> <center> <b> ${this._province.Kasus_Meni} </b> </center></td>
+                <td style="font-size:1em"> <center> <b> ${this._province.Kasus_Posi} </b> </center></td>
+                <td style="font-size:1em"> <center> <b> ${this._province.Kasus_Semb} </b> </center></td>
+            </tr>`;
     }
 }
 
