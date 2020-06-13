@@ -56,3 +56,21 @@
     margin-bottom: -0.812em;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+.jumbotron {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    rgba(2, 0, 36, 1) 0%,
+    rgba(152, 140, 140, 1) 40%,
+    rgba(218, 218, 218, 1) 72%,
+    rgba(255, 255, 255, 1) 95%
+  );
+}
