@@ -11,6 +11,7 @@
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/css/mdb.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -21,20 +22,22 @@
 
 <body>
 
-    <div class="jumbotron bg-info jumbotron-fluid text-white">
+    <div class="jumbotron darken-4 jumbotron-fluid shadow-none">
         <div class="container h-100">
             <div class="d-flex flex-sm-column flex-lg-row h-100 justify-content-center align-items-center">
-                <div class="p-2 speech-bubble flex-fill h-50 " data-aos-delay="1500" data-aos="fade-up">
-                    <div class="ml-4 title-jumbotron">
+                <div class="p-2 speech-bubble flex-fill h-50 " data-aos-delay="1000" data-aos="fade-up">
+                    <div class="ml-4 title-jumbotron text-white">
                         <h1 class="display-3 p-4 title">Monitor COVID-19</h1>
                         <p class="lead p-4">Latest Update :
                             <script> document.write(new Date().toDateString()); </script>
                         </p>
-                        <hr class="my-2">
-                        <p class="lead text-center">
-                            <button class="btn btn-info" id="triggerButton" onclick="triggerSearchFeature()">
-                                Cari Provinsi Anda
-                            </button>
+                        <hr class="white">
+                        <p class="lead text-center p-2">
+                            <a href="#searchProvince">
+                                <button class="btn btn-indigo text-white" id="triggerButton">
+                                    Cari Provinsi Anda
+                                </button>
+                            </a>
                         </p>
                     </div>
                 </div>
@@ -48,20 +51,17 @@
         </div>
     </div>
 
-    <!-- Nations -->
-
-
-    <div class="container">
+    <div class="container" data-aos="zoom-out-right">
         <!-- Indonesian Provinces -->
-        <div class="p-4">
+        <div class="p-4" id="searchProvince" data-aos="zoom-in-left" data-aos-delay="1500">
             <h1 class="text-center mb-4 mt-4 p-2">
                 Kasus di Indonesia
             </h1>
             <search-bar></search-bar>
 
-            <div class="table-responsive" data-aos="zoom-out-right">
+            <div class="table-responsive">
                 <table class="table table-striped table-hover">
-                    <thead class="bg-info white-text">
+                    <thead class="special-color-dark white-text">
                         <td class="rounded-left">
                             <center> <b> Provinsi</b> </center>
                         </td>
@@ -84,25 +84,21 @@
             </div>
         </div>
         <!-- End of Indonesian Provinces data -->
+        <hr>
+        <!-- Nations -->
 
-        <div class="p-4">
-
-            <h1 class="text-center mb-4 mt-4">
+        <div class="p-2">
+            <h1 class="text-center mb-4 mt-2">
                 Top 3 Global Cases
             </h1>
 
             <region-list class="p-2" data-aos="zoom-out-left"></region-list>
         </div>
 
+        <hr>
         <!--End of Nations Data -->
 
-
-
-
-
         <!-- What to Do -->
-
-
         <div class="p-4">
             <h1 class="text-center mb-4 mt-4">
                 Sayangi Diri dan Lingkungan Anda
@@ -120,7 +116,7 @@
                         <p class="text-detail text-center p-3"> Cuci tangan dengan sabun </p>
                     </div>
                     <div class="flex-fill p-2">
-                        <img src="../dist/assets/physical-distancing.jpg" height="200px" width="200"
+                        <img src="../dist/assets/physical-distancing.png" height="200px" width="200"
                             alt="physical-distancing">
                         <p class="text-detail text-center p-3"> Jaga jarak di area publik </p>
                     </div>
@@ -147,36 +143,47 @@
         </div>
         <!-- End of What to Do -->
 
-        <h1 class="text-center mb-4 mt-4" data-aos="zoom-out-right">
-            Yang harus dihindari
-        </h1>
-
-        <!-- What to Avoid-->
-        <div class="container text-center">
-
-            <div class="d-flex flex-sm-column flex-lg-row">
-                <div class="flex-fill p-2">
-                    tes
-                </div>
-                <div class="flex-fill p-2">
-                    tes
-                </div>
-                <div class="flex-fill p-2">
-                    tes
-                </div>
-
-            </div>
-        </div>
-        <!-- End of What to Avoid -->
-
-
-
     </div>
 
 
-    <footer>
-        Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a
-            href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+    <footer id="footer" class="m-0 special-color-dark">
+        <div class="container text-white">
+
+
+            <div class="row pt-5 justify-content-center align-items-start">
+                <div class="col-md-8">
+                    <strong>
+                        Sources
+                    </strong>
+                    <ul>
+                        <li class="mt-2">API :
+                            <a href="https://gis-kawalcovid19.hub.arcgis.com/search" target="_blank"> Kawal-Covid-ID</a>
+                        </li>
+                        <li class="mt-2">Icons :
+                            <a href="https://www.flaticon.com/authors/freepik" target="_blank" title="Freepik">Freepik
+                            </a>
+                            from
+                            <a href="https://www.flaticon.com/" target="_blank" title="Flaticon">
+                                www.flaticon.com
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4 mb-lg-0 text-center text-lg-right">
+
+                    <p class="text-8 text-color-light font-weight-bold pb-1 mb-0"><a href="tel:119" target="_blank"
+                            rel="nofollow" style="font-size: 2em;">119</a></p>
+                    <p class="m-0 line-height-2" style="font-size: 2em;"> <strong> COVID-19 Hotline</strong></p>
+                </div>
+                <div class="row mt-4 p-2">
+                    <div class="col text-center p-4">
+                        <strong>
+                            Muhammad Ilham Adhim © Copyright 2020. All Rights Reserved.
+                        </strong>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
 
 </body>
