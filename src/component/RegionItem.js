@@ -21,7 +21,7 @@ class RegionItem extends HTMLElement {
                             </center>
 
                         </div>
-                        <div class="col-sm-8 align-self-center">
+                        <div class="col-sm-8 align-self-center text-dark">
                             <center>
                                 <h4>${this._region.Country_Region}</h4>
                             </center>
