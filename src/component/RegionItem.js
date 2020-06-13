@@ -48,10 +48,7 @@ class RegionItem extends HTMLElement {
                             </center>
                         </div>
                     </div>
-                </div>
-            
-            
-            `;
+                </div>`;
     }
 }
 
