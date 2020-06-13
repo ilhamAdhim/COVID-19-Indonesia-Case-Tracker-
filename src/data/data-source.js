@@ -14,7 +14,7 @@ class DataSource {
             });
     }
 
-    static async getDataByProvince(province = null) {
+    static async getDataByProvince() {
         // Province, Deaths,Recovered, Positives data from Indonesia
         return fetch(`https://services5.arcgis.com/VS6HdKS0VfIhv8Ct/arcgis/rest/services/COVID19_Indonesia_per_Provinsi/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json`)
             .then(response => {
