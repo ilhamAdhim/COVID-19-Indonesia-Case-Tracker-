@@ -6,7 +6,6 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import "./component/RegionItem";
 import "./component/RegionList";
 import "./component/SearchBar";
-import "./component/JumbotronLeft"
-import "./component/ProvinceItem"
+import "./component/ProvinceItem";
 
 document.addEventListener("DOMContentLoaded", main);
