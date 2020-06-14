@@ -9,11 +9,13 @@ const main = () => {
     const regionListElement = document.querySelector("region-list");
     const provinceItemElement = document.querySelector("province-item");
 
+    const date = document.querySelector('.latest-update');
+
     const dataAllCountry = async (country = null) => {
         try {
             const finalResult = []
             const resultAPI = await DataSource.getDataByCountry(country);
-            if (country != null) {
+            if (country !== null) {
                 defaultNations.forEach(nationName => {
                     let country = _.filter(resultAPI.features, ['attributes.Country_Region', nationName]);
                     finalResult.push(country);
@@ -55,6 +57,7 @@ const main = () => {
 
     const defaultData = async () => {
         await dataAllCountry(defaultNations);
+        date.innerHTML += new Date().toDateString();
     }
 
     AOS.init();

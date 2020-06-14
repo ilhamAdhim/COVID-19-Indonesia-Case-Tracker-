@@ -24,7 +24,6 @@ class SearchBar extends HTMLElement {
                 <input type="text" placeholder="Cari Provinsi Anda..." id="searchElement" type="search" aria-label="Search">
                 <button class="btn btn-indigo btn-rounded btn-md text-white" id="searchButtonElement" type="submit">
                    <span> <i class="fa fa-search" aria-hidden="true"></i></span>
-                
                 </button>
             </div>
         </div>`;
