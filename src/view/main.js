@@ -24,7 +24,7 @@ const main = () => {
             renderCountryData(country != null ? finalResult : resultAPI);
 
         } catch (message) {
-            errorMessage(message);
+            console.log("Country is not defined");
         }
     }
 
@@ -38,16 +38,16 @@ const main = () => {
             const province = _.filter(resultAPI.features, ['attributes.Provinsi', formattedProvince]);
             renderSearchProvince(province);
         } catch (message) {
-            errorMessage(message);
+            renderProvinceError(searchBarElement.value);
         }
     };
 
-    const renderSearchProvince = async result => {
+    const renderSearchProvince = result => {
         provinceItemElement.province = result;
     }
 
-    const errorMessage = msg => {
-        console.log(msg);
+    const renderProvinceError = input => {
+        console.log(`Data ${input} tidak ditemukan`);
     }
 
     const renderCountryData = results => {
