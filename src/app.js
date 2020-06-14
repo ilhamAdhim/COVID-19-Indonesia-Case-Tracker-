@@ -1,4 +1,3 @@
-import main from "../src/view/main";
 import 'regenerator-runtime'
 
 import "../styles/style.css";
@@ -10,5 +9,6 @@ import "./component/RegionList";
 import "./component/SearchBar";
 import "./component/ProvinceItem";
 
+import main from "../src/view/main";
 
 document.addEventListener("DOMContentLoaded", main);
