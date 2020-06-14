@@ -4,7 +4,7 @@ class RegionItem extends HTMLElement {
     }
     set region(region) {
         this._region = region[0].attributes;
-        this._region['image'] = "./src/assets/" + this._region.Country_Region + "-flag-button-round-icon-128.png"
+        this._region['image'] = `./src/assets/${this._region.Country_Region}-flag-button-round-icon-128.png`
         this.render();
     }
 
