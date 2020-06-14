@@ -19,10 +19,10 @@ class ProvinceItem extends HTMLElement {
 
         tbody.innerHTML += ` 
             <tr class="province-item">
-                <td style="font-size:1em"> <center> <b> ${this._province.Provinsi} </b> </center></td>
-                <td style="font-size:1em"> <center> <b> ${this._province.Kasus_Meni} </b> </center></td>
-                <td style="font-size:1em"> <center> <b> ${this._province.Kasus_Posi} </b> </center></td>
-                <td style="font-size:1em"> <center> <b> ${this._province.Kasus_Semb} </b> </center></td>
+                <td style="font-size:1em" class="text-center"> <b> ${this._province.Provinsi} </b> </td>
+                <td style="font-size:1em" class="text-center"> <b> ${this._province.Kasus_Meni} </b> </td>
+                <td style="font-size:1em" class="text-center"> <b> ${this._province.Kasus_Posi} </b> </td>
+                <td style="font-size:1em" class="text-center"> <b> ${this._province.Kasus_Semb} </b> </td>
             </tr>`;
     }
 }
